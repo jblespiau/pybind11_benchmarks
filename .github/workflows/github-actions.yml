@@ -26,6 +26,8 @@ jobs:
         python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
         cache: 'pip'
+    - name: Install boost.python
+      run: sudo apt-get install libboost-python-dev
     - name: Update CMake
       uses: jwlawson/actions-setup-cmake@v1.12
     - run: pip install -r requirements.txt
