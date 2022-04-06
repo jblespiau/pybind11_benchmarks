@@ -12,11 +12,11 @@ jobs:
       matrix:
         include:
         - os: ubuntu-20.04
-          OS_PYTHON_VERSION: 3.8
+          BOOST_PYTHON_VERSION: 38
 
     runs-on: ${{ matrix.os }}
     env:
-      OS_PYTHON_VERSION: ${{ matrix.OS_PYTHON_VERSION }}
+      BOOST_PYTHON_VERSION: ${{ matrix.BOOST_PYTHON_VERSION }}
 
     steps:
     - uses: actions/checkout@v3

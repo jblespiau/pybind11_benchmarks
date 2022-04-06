@@ -164,7 +164,7 @@ def compile_and_run_files(directory, only=('boost', 'pybind11', 'nanobind')):
     if lib == 'nanobind':
       cmd += ['-lnanobind']
     elif lib == 'boost':
-      cmd += ['-lboost_python39']
+      cmd += [f'-lboost_python{os.environ.get("BOOST_PYTHON_VERSION", 39)}']
 
     print('Running:', ' '.join(cmd))
     time_before = time.perf_counter()
