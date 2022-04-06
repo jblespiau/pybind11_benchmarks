@@ -6,6 +6,7 @@ import importlib.machinery
 import collections
 import os
 import time
+import sys
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -395,9 +396,14 @@ def gen_performance_graphs(runtimes):
 print(gen_performance_graphs(runtime_performance()))
 
 
+import sys
+
+cpp_dir = os.path.join(os.getcwd(), 'cpp/')
+sys.path.insert(0, cpp_dir)
+
 gen_file('func', _gen_func)
 gen_file('class', _gen_class)
-compilation_data = compile_and_run_files(os.path.join(os.getcwd(), 'cpp/'), only=["pybind11"])
+compilation_data = compile_and_run_files(cpp_dir, only=["pybind11"])
 print(compilation_data)
 
 # compilation_data = _CompilationData(
