@@ -12,13 +12,23 @@ Thus, this repository extracts, robustifies (in particular for reprodicubility) 
 
 The goal is to be able, in addition to a CL, to provide the material to justify that a change speed up pybind11 code by X%.
 
+## Running
+
+On Linux, with python 3.9 installed:
+
+```
+pip install requirements.txt
+./install.sh
+python3 generate_files.py
+```
+
 ## Technical details
 
-## Supported platforms
+### Supported platforms
 
 Currently, only some Linux-based system is supported (mainly for `apt-get`, but MacOs should be easy to adapt.
 
-## Dynamic linking 
+### Dynamic linking 
 
 `pybind11` is a header-only library, while `boost.python` and `nanobind` are shared libraries.
 

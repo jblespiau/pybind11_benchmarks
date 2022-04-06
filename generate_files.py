@@ -151,8 +151,8 @@ def compile_and_run_files(directory, only=('boost', 'pybind11', 'nanobind')):
     name, lib, opt_mode = name_lib_mode
     if lib not in only:
       continue
-      print(f'Processing {name}, {lib}, {opt_mode}')
 
+    print(f'Processing {name}, {lib}, {opt_mode}')
     opt_flags = _OPT_FLAGS[opt_mode]
     fname_out = name + '_' + lib + '_' + opt_mode + _EXTENSION_SUFFIX
     file_path = os.path.join('cpp', f'{name}_{lib}_{opt_mode}.cpp')
@@ -399,7 +399,7 @@ sys.path.insert(0, cpp_dir)
 
 gen_file('func', _gen_func)
 gen_file('class', _gen_class)
-compilation_data = compile_and_run_files(cpp_dir, only=["pybind11"])
+compilation_data = compile_and_run_files(cpp_dir)
 print(compilation_data)
 
 # compilation_data = _CompilationData(

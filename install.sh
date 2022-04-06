@@ -1,6 +1,13 @@
 git clone --depth 1 https://github.com/pybind/pybind11
-git clone --depth 1 https://github.com/wjakob/nanobind
+git clone  https://github.com/wjakob/nanobind
 
+cd nanobind
+git checkout b4642b225171903f3c0747f55e1b2fe146838d54
+git submodule update --init --recursive
+
+cmake .
+make
+cd ..
 
 # We select the latest version on March 2022, which was from December 2021.
 # See https://www.boost.org/users/history/version_1_78_0.html
