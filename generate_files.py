@@ -168,7 +168,12 @@ def compile_and_run_files(directory, only=('boost', 'pybind11', 'nanobind')):
 
     print('Running:', ' '.join(cmd))
     time_before = time.perf_counter()
-    proc = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+    try:
+      proc = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+      print(proc)
+    except subprocess.CalledProcessError as e:
+      print(e.output)
+      raise
     time_after = time.perf_counter()
     if opt_mode != 'debug':
       subprocess.check_call(['strip', '-x', fname_out])
