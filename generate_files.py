@@ -310,7 +310,9 @@ def runtime_performance():
     for lib in ['python', 'pybind11', 'nanobind', 'boost']:  # nanobind, boost
       for mode in ['debug', 'opt']:
         if lib == 'python':
-          m = importlib.import_module('python_module')
+          # We can use a real module, or the fake class above which acts as
+          # a module, but which is faster.
+          # m = importlib.import_module('python_module')
           m = native_module
         else:
           m = importlib.import_module(f'{name}_{lib}_{mode}')
