@@ -22,6 +22,8 @@ pip install requirements.txt
 python3 generate_files.py
 ```
 
+Contributions are welcomed, in particular to add support for more platforms (OSX mainly), or additional benchmarks.
+
 ## Technical details
 
 ### Supported platforms
