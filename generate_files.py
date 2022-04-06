@@ -19,7 +19,7 @@ _EXTENSION_SUFFIX = importlib.machinery.EXTENSION_SUFFIXES[0]
 
 _PYBIND11_PATH = os.path.join(os.getcwd(), 'pybind11/include')
 _NANOBIND_PATH = os.path.join(os.getcwd(), 'nanobind/include')
-_BOOST_PATH = os.path.join(os.getcwd(), 'boost_1_78_0')
+# _BOOST_PATH = os.path.join(os.getcwd(), 'boost_1_78_0')
 _CMD_BASE = [
     'clang++',
     '-shared',
@@ -172,7 +172,7 @@ def compile_and_run_files(directory, only=('boost', 'pybind11', 'nanobind')):
       proc = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
       print(proc)
     except subprocess.CalledProcessError as e:
-      print(e.output)
+      print("The compilation failed with:\n" + e.output.decode())
       raise
     time_after = time.perf_counter()
     if opt_mode != 'debug':

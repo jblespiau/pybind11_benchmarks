@@ -30,7 +30,7 @@ jobs:
       run: |
         sudo apt-get update -y
         sudo apt-get install libboost-python-dev
-
+        /sbin/ldconfig -v -N | grep boost
     - name: Update CMake
       uses: jwlawson/actions-setup-cmake@v1.12
     - run: pip install -r requirements.txt
