@@ -393,10 +393,6 @@ def gen_performance_graphs(runtimes):
   plt.savefig('perf.svg', facecolor='white')
   return fig
 
-print(gen_performance_graphs(runtime_performance()))
-
-
-import sys
 
 cpp_dir = os.path.join(os.getcwd(), 'cpp/')
 sys.path.insert(0, cpp_dir)
