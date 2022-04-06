@@ -14,7 +14,7 @@ The goal is to be able, in addition to a CL, to provide the material to justify 
 
 ## Running
 
-On Linux, with python 3.9 installed:
+On Linux, with Python 3.9 installed:
 
 ```
 pip install requirements.txt
@@ -28,7 +28,9 @@ Contributions are welcomed, in particular to add support for more platforms (OSX
 
 ### Supported platforms
 
-Currently, only some Linux-based system is supported (mainly for `apt-get`, but MacOs should be easy to adapt.
+Currently, only some Linux-based system is supported (mainly for `apt-get`), but MacOs should be easy to adapt.
+
+The github actions latest ubuntu does not seem to install the latest clang and `libboost-python-dev` only install the shared library for Python 3.8, so we only test that within github actions.
 
 ### Dynamic linking 
 
