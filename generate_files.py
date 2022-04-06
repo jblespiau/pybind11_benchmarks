@@ -206,6 +206,7 @@ def _get_labels_and_names_opt_modes(name_lib_opt_mode_list):
 
   return labels, names_opt_modes
 
+
 def gen_compilation_graphs(name_lib_to_float, title, ylabel, filename):
   """Args:
 
@@ -279,50 +280,7 @@ def gen_compilation_graphs(name_lib_to_float, title, ylabel, filename):
   return fig
 
 
-#gen_file('func', _gen_func)
-#gen_file('class', _gen_class)
-compilation_data = compile_and_run_files(os.path.join(os.getcwd(), 'cpp/'), only=["pybind11"])
-# print(compilation_data)
-
-# compilation_data = _CompilationData(
-#     sizes={
-#         'class_boost_opt': 3.200624,
-#         'class_pybind11_opt': 0.801760,
-#         'func_boost_opt': 6.379840,
-#         'class_boost_debug': 36.997512,
-#         'func_pybind11_debug': 25.215752,
-#         'class_pybind11_debug': 28.348160,
-#         'func_pybind11_opt': 1.563640,
-#         'func_boost_debug': 21.998824,
-#         'class_nanobind_opt': 0.29685211181640625, 'class_nanobind_debug': 8.693931579589844, 'func_nanobind_debug': 10.312309265136719, 'func_nanobind_opt': 0.448577880859375,
-#     },
-#     times={
-#         'class_boost_opt': 59.02106701499724,
-#         'class_pybind11_opt': 46.46974422399944,
-#         'func_boost_opt': 34.67665654800658,
-#         'class_boost_debug': 27.64489218899689,
-#         'func_pybind11_debug': 29.556745306996163,
-#         'class_pybind11_debug': 28.78910167599679,
-#         'func_pybind11_opt': 38.6706105129997,
-#         'func_boost_debug': 19.3108848510019,
-#         'class_nanobind_opt': 17.301341832004255, 'class_nanobind_debug': 15.288980769008049, 'func_nanobind_debug': 12.167448592997971, 'func_nanobind_opt': 17.3487650820025
-#     })
-
-# gen_compilation_graphs(
-#     compilation_data.times,
-#     title='Time (seconds)',
-#     ylabel='Compilation time',
-#     filename='times')
-
-# gen_compilation_graphs(
-#     compilation_data.sizes,
-#     title='Binary size',
-#     ylabel='Size (MiB)',
-#     filename='sizes')
-
 # Running the extensions and graph construction
-
-
 class native_module:
 
   @staticmethod
@@ -433,3 +391,45 @@ def gen_performance_graphs(runtimes):
   return fig
 
 print(gen_performance_graphs(runtime_performance()))
+
+
+gen_file('func', _gen_func)
+gen_file('class', _gen_class)
+compilation_data = compile_and_run_files(os.path.join(os.getcwd(), 'cpp/'), only=["pybind11"])
+print(compilation_data)
+
+# compilation_data = _CompilationData(
+#     sizes={
+#         'class_boost_opt': 3.200624,
+#         'class_pybind11_opt': 0.801760,
+#         'func_boost_opt': 6.379840,
+#         'class_boost_debug': 36.997512,
+#         'func_pybind11_debug': 25.215752,
+#         'class_pybind11_debug': 28.348160,
+#         'func_pybind11_opt': 1.563640,
+#         'func_boost_debug': 21.998824,
+#         'class_nanobind_opt': 0.29685211181640625, 'class_nanobind_debug': 8.693931579589844, 'func_nanobind_debug': 10.312309265136719, 'func_nanobind_opt': 0.448577880859375,
+#     },
+#     times={
+#         'class_boost_opt': 59.02106701499724,
+#         'class_pybind11_opt': 46.46974422399944,
+#         'func_boost_opt': 34.67665654800658,
+#         'class_boost_debug': 27.64489218899689,
+#         'func_pybind11_debug': 29.556745306996163,
+#         'class_pybind11_debug': 28.78910167599679,
+#         'func_pybind11_opt': 38.6706105129997,
+#         'func_boost_debug': 19.3108848510019,
+#         'class_nanobind_opt': 17.301341832004255, 'class_nanobind_debug': 15.288980769008049, 'func_nanobind_debug': 12.167448592997971, 'func_nanobind_opt': 17.3487650820025
+#     })
+
+gen_compilation_graphs(
+    compilation_data.times,
+    title='Time (seconds)',
+    ylabel='Compilation time',
+    filename='times')
+
+gen_compilation_graphs(
+    compilation_data.sizes,
+    title='Binary size',
+    ylabel='Size (MiB)',
+    filename='sizes')
