@@ -35,5 +35,6 @@ jobs:
     - name: Build and test
       run: |
         python3 --version
+        clang --version
         python3 generate_files.py
 
